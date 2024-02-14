@@ -1,7 +1,7 @@
 # Title of Your Final Project Here 
 ## INFO 201 "Foundational Skills for Data Science"
 
-Authors: Your names here
+Authors: Rayana Lyons, Nakyung Kim, Mia Sohn, Bryan Lam
 
 
 For the Final Project -- Data Wrangling, add the following to this code repository:
