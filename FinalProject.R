@@ -44,14 +44,16 @@ deaths_per_year_df <-
 
 # Only keep the number of deaths that was recorded in December
 # because the dataset uses 12-month rolling provisional death counts
+month = "December"
 deaths_per_year_df <- 
   deaths_per_year_df[
-    deaths_per_year_df$Month %in% "December",]
+    deaths_per_year_df$Month %in% month,]
 
 # Only keep year 2016
+year = 2016
 deaths_per_year_df <- 
   deaths_per_year_df[
-    deaths_per_year_df$Year %in% "2016",]
+    deaths_per_year_df$Year %in% year,]
 
 # Remove columns 5, 8, 9, 10
 deaths_per_year_df <- select(deaths_per_year_df, -4:-5, -8:-10)
