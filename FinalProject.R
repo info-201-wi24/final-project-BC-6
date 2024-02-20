@@ -1,6 +1,7 @@
 # Load libraries
 library("dplyr")
 library("tidyr")
+library("stringr")
 
 # Load csv files
 deaths_per_year_df <- read.csv("DrugOverdoseCountDataset.csv")
@@ -44,16 +45,14 @@ deaths_per_year_df <-
 
 # Only keep the number of deaths that was recorded in December
 # because the dataset uses 12-month rolling provisional death counts
-month <-  "December"
 deaths_per_year_df <- 
   deaths_per_year_df[
-    deaths_per_year_df$Month %in% month,]
+    deaths_per_year_df$Month %in% "December",]
 
 # Only keep year 2016
-year <-  2016
 deaths_per_year_df <- 
   deaths_per_year_df[
-    deaths_per_year_df$Year %in% year,]
+    deaths_per_year_df$Year %in% 2016,]
 
 # Remove columns 5, 8, 9, 10
 deaths_per_year_df <- select(deaths_per_year_df, -4:-5, -8:-10)
@@ -67,13 +66,21 @@ deaths_per_year_df <- spread(deaths_per_year_df, key = Indicator, value = Data.V
 final_data_df <- left_join(deaths_per_year_df, perc_poverty_by_race, by = c("State.Name"))
 
 
-# -------------------- Clean final_data_df -------------------- #
-# Remove row with New York City
-final_data_df <- head(final_data_df, -1)
+# -------------------- Clean / Augment final_data_df -------------------- #
+# Remove row with United States and New York City
+#final_data_df <- head(final_data_df, -1)
+final_data_df <- final_data_df[-c(53, 45, 8),]
+
+# Create column to show which region each state is in
+state_abbreviations <- state.abb
+regions <- state.region
+state_region <- data.frame(state = state_abbreviations, region = regions)
+
+final_data_df <- left_join(final_data_df, state_region, by = c("State" = "state"))
 
 
 # -------------------- Write csv file -------------------- #
-#write.csv(final_data_df, file = file.path("final_data_df.csv"))
+write.csv(final_data_df, file = file.path("final_data_df.csv"))
 
 
 
