@@ -21,7 +21,8 @@ perc_poverty_by_race <- left_join(total_pop_df, poverty_count_df, by = "State.Na
 perc_poverty_by_race <- perc_poverty_by_race %>% 
   mutate_at(c(2:13), as.numeric, na.rm = TRUE)
 
-# Get the percentage of poverty by race/ethnicity
+# Get the percentage of poverty by race/ethnicity and
+# create numerical columns for each value
 perc_poverty_by_race <- perc_poverty_by_race %>% 
   group_by(State.Name) %>% 
   summarize(perc_white_pov = White.y / White.x,
@@ -67,10 +68,9 @@ final_data_df <- left_join(deaths_per_year_df, perc_poverty_by_race, by = c("Sta
 
 # -------------------- Clean / Augment final_data_df -------------------- #
 # Remove row with United States and New York City
-#final_data_df <- head(final_data_df, -1)
 final_data_df <- final_data_df[-c(53, 45, 8),]
 
-# Create column to show which region each state is in
+# Create categorical column to show which region each state is in
 state_abbreviations <- state.abb
 regions <- state.region
 state_region <- data.frame(state = state_abbreviations, region = regions)
