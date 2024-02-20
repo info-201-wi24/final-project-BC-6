@@ -1,7 +1,6 @@
 # Load libraries
 library("dplyr")
 library("tidyr")
-library("stringr")
 
 # Load csv files
 deaths_per_year_df <- read.csv("DrugOverdoseCountDataset.csv")
