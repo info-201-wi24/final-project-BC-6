@@ -5,7 +5,7 @@ library("tidyr")
 # Load csv files
 deaths_per_year_df <- read.csv("DrugOverdoseCountDataset.csv")
 total_pop_df <- read.csv("2016_total_pop_dem.csv")
-poverty_count_df <- read.csv("2016.csv")
+poverty_count_df <- read.csv("2016_poverty_dem.csv")
 
 
 # -------------------- Clean total_pop_df and poverty_count_df -------------------- #
