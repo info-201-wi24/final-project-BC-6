@@ -88,24 +88,6 @@ final_data_df <- left_join(final_data_df, state_region, by = c("State" = "state"
 
 
 
-%>% mutate(State.Name = tolower(State.Name))
-
-state_shape <- map_data("state")
-state_shape <- left_join(selected_df, state_shape, by = c("State.Name" = "region"))
-
-ggplot(data = state_shape) +
-  geom_polygon(mapping = aes(
-    x = long,
-    y = lat,
-    group = group,
-    fill = perc_in_poverty),
-    color = "white",
-    size = 0.1
-  ) +
-  coord_map() 
-scale_fill_continuous(low = "#132B43", high = "Red")
-
-
 
 
 

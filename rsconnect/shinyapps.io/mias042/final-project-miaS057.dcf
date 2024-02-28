@@ -5,9 +5,9 @@ account: mias042
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 11336526
-bundleId: 8306332
+bundleId: 8308391
 url: https://mias042.shinyapps.io/final-project-miaS057/
 version: 1
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: 2016_poverty_dem.csv|2016_total_pop_dem.csv|Dataset Nutrition Label.pdf|DrugOverdoseCountDataset.csv|final_data_df.csv|FinalProject.R|README.md
+ignoredFiles: 2016_poverty_dem.csv|2016_total_pop_dem.csv|Dataset Nutrition Label.pdf|DrugOverdoseCountDataset.csv|final_data_df.numbers|FinalProject.R|README.md
