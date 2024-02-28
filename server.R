@@ -4,6 +4,8 @@ library(plotly)
 library(maps)
 library(mapproj)
 library(stringr)
+library(bslib)
+
 
 # Load dataframe
 final_data_df <- read.csv("final_data_df.csv")
@@ -23,7 +25,7 @@ server <- function(input, output){
         text = paste0("Count: ", Number.of.Drug.Overdose.Deaths),
         fill = State.Name
       )) +
-      labs(x = "Number of Drug Overdose Deaths", y = "State") 
+      labs(x = "Number of Drug Overdose Deaths", y = "State")
     return(ggplotly(drug_overdose_plot, tooltip = "text"))
   })
   

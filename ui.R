@@ -4,6 +4,12 @@ library(plotly)
 library(maps)
 library(mapproj)
 library(stringr)
+library(bslib)
+
+
+my_theme <- bs_theme(
+  bootswatch = "yeti"
+)
 
 # Load dataframe
 final_data_df <- read.csv("final_data_df.csv")
@@ -12,7 +18,9 @@ final_data_df <- read.csv("final_data_df.csv")
 
 overview_tab <- tabPanel("Introduction",
    h1("Introduction"),
-   p("some explanation")
+   p("some explanation"),
+   img(src = "poverty_img.jpeg", height = 200, width = 350),
+
 )
 
 ## VIZ 1 TAB INFO
@@ -103,6 +111,7 @@ conclusion_tab <- tabPanel("Conclusion",
 
 
 ui <- navbarPage("Poverty and Drug Overdose Deaths",
+  theme = my_theme,
   overview_tab,
   viz_1_tab,
   viz_2_tab,
