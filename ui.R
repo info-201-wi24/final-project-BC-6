@@ -97,7 +97,7 @@ viz_3_tab <- tabPanel("Deaths and Poverty by Region",
 ## CONCLUSIONS TAB INFO
 
 conclusion_tab <- tabPanel("Conclusion",
- h1("Some title"),
+ h1("Conclusion"),
  p("some conclusions")
 )
 
