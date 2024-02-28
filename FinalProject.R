@@ -25,14 +25,20 @@ perc_poverty_by_race <- perc_poverty_by_race %>%
 # create numerical columns for each value
 perc_poverty_by_race <- perc_poverty_by_race %>% 
   group_by(State.Name) %>% 
-  summarize(perc_white_pov = White.y / White.x,
-            perc_black_pov = Black.y / Black.x,
-            perc_hispanic_pov = Hispanic.y / Hispanic.x,
-            perc_black_pov = Black.y / Black.x,
-            perc_native_pov = American.Indian.Alaska.Native.y / American.Indian.Alaska.Native.x,
-            perc_multiple_pov = Multiple.Races.y / Multiple.Races.x,
-            perc_total_pov = Total.Poverty / Total)
+  summarize(white = round((White.y / White.x) * 100, digits = 2),
+            black = round((Black.y / Black.x) * 100, digits = 2),
+            hispanic = round((Hispanic.y / Hispanic.x) * 100, digits = 2),
+            native = round((American.Indian.Alaska.Native.y / American.Indian.Alaska.Native.x) * 100, digits = 2),
+            multiple_races = round((Multiple.Races.y / Multiple.Races.x) * 100, digits = 2),
+            total = round((Total.Poverty / Total) * 100, digits = 2))
 
+# Gather all the percentage in poverty columns into two columns
+perc_poverty_by_race <- gather(
+  perc_poverty_by_race,
+  key = race,
+  value = perc_in_pov,
+  -State.Name
+)
 
 # -------------------- Clean deaths_per_year_df -------------------- #
 # Make Data.Value column numeric
@@ -60,7 +66,6 @@ deaths_per_year_df <- select(deaths_per_year_df, -4:-5, -8:-10)
 # Spread out Indicator column
 deaths_per_year_df <- spread(deaths_per_year_df, key = Indicator, value = Data.Value)
 
-
 # -------------------- Join dataframes -------------------- #
 # Join poverty_count_df to deaths_per_year_df
 final_data_df <- left_join(deaths_per_year_df, perc_poverty_by_race, by = c("State.Name"))
@@ -68,7 +73,7 @@ final_data_df <- left_join(deaths_per_year_df, perc_poverty_by_race, by = c("Sta
 
 # -------------------- Clean / Augment final_data_df -------------------- #
 # Remove row with United States and New York City
-final_data_df <- final_data_df[-c(53, 45, 8),]
+final_data_df <- final_data_df[-c(265:270, 313),]
 
 # Create categorical column to show which region each state is in
 state_abbreviations <- state.abb
@@ -79,11 +84,26 @@ final_data_df <- left_join(final_data_df, state_region, by = c("State" = "state"
 
 
 # -------------------- Write csv file -------------------- #
-write.csv(final_data_df, file = file.path("final_data_df.csv"))
+#write.csv(final_data_df, file = file.path("final_data_df.csv"))
 
 
 
+%>% mutate(State.Name = tolower(State.Name))
 
+state_shape <- map_data("state")
+state_shape <- left_join(selected_df, state_shape, by = c("State.Name" = "region"))
+
+ggplot(data = state_shape) +
+  geom_polygon(mapping = aes(
+    x = long,
+    y = lat,
+    group = group,
+    fill = perc_in_poverty),
+    color = "white",
+    size = 0.1
+  ) +
+  coord_map() 
+scale_fill_continuous(low = "#132B43", high = "Red")
 
 
 
