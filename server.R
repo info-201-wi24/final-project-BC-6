@@ -12,7 +12,7 @@ final_data_df <- read.csv("final_data_df.csv")
 server <- function(input, output){
   
   # TODO Make outputs based on the UI inputs here
-  # Tab1
+  # --------------------- Tab 1 --------------------- #
   output$drug_od_plot <- renderPlotly({
     selected_df <- final_data_df %>% filter(State.Name %in% input$state_select)
     
@@ -28,7 +28,7 @@ server <- function(input, output){
   })
   
   
-  #Tab2
+  # --------------------- Tab 2 --------------------- #
   output$race_plot <- renderPlotly({
     blank_theme <- theme_bw() +
       theme(
@@ -73,6 +73,24 @@ server <- function(input, output){
   })
   
   
-  #Tab3
+  # --------------------- Tab 3 --------------------- #
+  output$region_plot <- renderPlotly({
+    selected_df <- final_data_df %>% filter(race == "total")
+    selected_df <- selected_df %>% filter(region %in% input$region_select)
+    region_choice_plot <- ggplot(selected_df) +
+      geom_point(mapping = aes(
+        x = Number.of.Drug.Overdose.Deaths,
+        y = perc_in_pov,
+        text = paste0("State: ", State.Name, "<br>",
+                      "Number of Drug Overdose Deaths: ", Number.of.Drug.Overdose.Deaths, "<br>",
+                      "Percent in Poverty: ", perc_in_pov),
+        color = region
+      )) +
+      labs(x = "Number of Drug Overdose Deaths", y = "Total Percent in Poverty") 
+    return(ggplotly(region_choice_plot, tooltip = "text"))
+  })
+  
+  
+  
   
 }

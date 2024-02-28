@@ -57,7 +57,7 @@ viz_2_sidebar <- sidebarPanel(
 )
 
 viz_2_main_panel <- mainPanel(
-  h2("Vizualization 2 Title"),
+  h2("Percent of People who are in Poverty by Race"),
   plotlyOutput(outputId = "race_plot")
 )
 
@@ -73,14 +73,21 @@ viz_2_tab <- tabPanel("Poverty by Race",
 viz_3_sidebar <- sidebarPanel(
   #h2("Options for graph"),
   #TODO: Put inputs for modifying graph here
+  selectInput(
+    inputId = "region_select",
+    label = "Selected regions to display",
+    choices = c("West", "Northeast", "South", "North Central"),
+    selected = "West",
+    multiple = TRUE
+  )
 )
 
 viz_3_main_panel <- mainPanel(
-  h2("Vizualization 3 Title"),
-  # plotlyOutput(outputId = "your_viz_1_output_id")
+  h2("Number of Drug Overdose Deaths and Total Percent of People in Poverty by Region"),
+  plotlyOutput(outputId = "region_plot")
 )
 
-viz_3_tab <- tabPanel("Viz 3 tab title",
+viz_3_tab <- tabPanel("Deaths and Poverty by Region",
   sidebarLayout(
     viz_3_sidebar,
     viz_3_main_panel
@@ -93,7 +100,6 @@ conclusion_tab <- tabPanel("Conclusion",
  h1("Some title"),
  p("some conclusions")
 )
-
 
 
 ui <- navbarPage("Poverty and Drug Overdose Deaths",
