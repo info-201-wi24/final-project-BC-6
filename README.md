@@ -20,7 +20,6 @@ When you are finished, please add the text from your introductory and concluding
 Feel free to delete these instructions for your final README.md file and to make your GitHub repository public if you would like others to be able to see it. 
 
 # Introduction
-Rayana Lyons, Nakyoung Kim, Mia Sohn, Brayden Lam
 
 Welcome to our exploration into the relationship between poverty and drug overdose deaths in the United States. This project delves into essential questions surrounding the intersection of socio-economic status and public health outcomes, utilizing datasets that weave together vital statistics. Join us in deciphering the narrative that shapes the health outcomes of communities across the United States. Let’s uncover the stories hidden within the numbers.
 
@@ -31,7 +30,7 @@ Welcome to our exploration into the relationship between poverty and drug overdo
 - What is the percentage of people in poverty by race and state?
 - How do the number of drug overdose deaths and total number of people in poverty compare by region?
 
-Dataset at a Glance:
+### Dataset at a Glance:
 The datasets that we used offer a detailed exploration of mortality and poverty dynamics in the United States during 2016. Our compilation uses these three datasets:
 
 1. Drug Overdose Deaths
@@ -40,7 +39,7 @@ The datasets that we used offer a detailed exploration of mortality and poverty 
 
 3. Population by Race for each State
 
-#### Ethical Considerations:
+### Ethical Considerations:
 - Privacy and Identification: Address potential privacy concerns and the risk of individual or community identification, particularly with race and region data.
 - Data Accuracy: Consider the accuracy and reliability of reported death and overdose numbers, ensuring consistency in data collection methods across states.
 - Ethical Use of Racial Data: Handle racial data with care to avoid reinforcing stereotypes or biases, and address the potential risks of stigmatization or discrimination.
