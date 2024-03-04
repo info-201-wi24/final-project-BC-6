@@ -5,7 +5,7 @@ account: mias042
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 11336526
-bundleId: 8308671
+bundleId: 8324136
 url: https://mias042.shinyapps.io/final-project-miaS057/
 version: 1
 asMultiple: FALSE
