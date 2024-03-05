@@ -71,7 +71,6 @@ server <- function(input, output){
       blank_theme
     
     return(ggplotly(race_pov_plot, tooltip = "text"))
-    
   })
   
   

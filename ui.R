@@ -21,7 +21,8 @@ final_data_df <- read.csv("final_data_df.csv")
 overview_tab <- tabPanel("Introduction",
    includeMarkdown("introduction.md"),
    img(src = "poverty_img.jpeg", height = 350, width = 600),
-
+   br(),
+   br()
 )
 
 ## VIZ 1 TAB INFO
@@ -43,7 +44,10 @@ viz_1_main_panel <- mainPanel(
   plotlyOutput(outputId = "drug_od_plot"),
   br(),
   br(),
-  h4("Importance of Data")
+  h4("Importance of Data"),
+  p("This graph generates the amount of drug overdose deaths per state across 
+    the United States. Using this graph you can select specific states to compare. 
+    This helps us to visualize the pattern of the states with the most overdose deaths.")
 )
 
 viz_1_tab <- tabPanel("Drug Overdose Deaths",
@@ -65,7 +69,6 @@ viz_2_sidebar <- sidebarPanel(
     #selected = "hispanic",
     inline = TRUE
   )
-  
 )
 
 viz_2_main_panel <- mainPanel(
@@ -73,7 +76,10 @@ viz_2_main_panel <- mainPanel(
   plotlyOutput(outputId = "race_plot"),
   br(),
   br(),
-  h4("Importance of Data")
+  h4("Importance of Data"),
+  p("This graph generates the states with a percentage of poverty with the 
+    selected race. This graph can help us understand which states are more prone 
+    to poverty and which races tend to have a higher poverty percentage in each state.")
 )
 
 viz_2_tab <- tabPanel("Poverty by Race",
@@ -102,7 +108,13 @@ viz_3_main_panel <- mainPanel(
   plotlyOutput(outputId = "region_plot"),
   br(),
   br(),
-  h4("Importance of Data")
+  h4("Importance of Data"),
+  p("This plot shows the total percent of people in poverty compared to the number 
+    of overdose drug deaths per state by region. You can select specific regions 
+    of the United States to display. Each point of the scatter plot represents a 
+    state where the y axis is the percentage of people in poverty and the x-axis 
+    represents the number of overdose deaths in that state. By hovering over the 
+    data points it will display the state and the data associated with the point.")
 )
 
 viz_3_tab <- tabPanel("Deaths and Poverty by Region",

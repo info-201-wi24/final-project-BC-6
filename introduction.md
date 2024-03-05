@@ -10,7 +10,7 @@ Welcome to our exploration into the relationship between poverty and drug
    the numbers.
    
 ### Key Questions:
-- Does a significant correlation exist between poverty rates 
+- Does a significant correlation exist between the percentage of people in poverty 
              and the prevalence of drug overdose deaths across diverse 
              states in the U.S.?
 -  How do drug overdose deaths manifest across different racial groups, 
