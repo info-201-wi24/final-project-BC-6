@@ -13,7 +13,7 @@ Authors: Rayana Lyons, Nakyung Kim, Mia Sohn, Bryan Lam
 Welcome to our exploration into the relationship between poverty and drug overdose deaths in the United States. This project delves into essential questions surrounding the intersection of socio-economic status and public health outcomes, utilizing datasets that weave together vital statistics. Join us in deciphering the narrative that shapes the health outcomes of communities across the United States. Let’s uncover the stories hidden within the numbers.
 
 ### Key Questions:
-- Does a significant correlation exist between poverty rates and the prevalence of drug overdose deaths across diverse states in the U.S.?
+- Does a significant correlation exist between the percentage of people in poverty and the prevalence of drug overdose deaths across diverse states in the U.S.?
 - How do drug overdose deaths manifest across different racial groups, and to what extent does poverty contribute to these variations?
 - What is the number of drug overdose deaths for each state?
 - What is the percentage of people in poverty by race and state?
