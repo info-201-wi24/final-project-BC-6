@@ -25,7 +25,7 @@ server <- function(input, output){
         text = paste0("Count: ", Number.of.Drug.Overdose.Deaths),
         fill = State.Name
       )) +
-      labs(x = "Number of Drug Overdose Deaths", y = "State")
+      labs(x = "Number of Drug Overdose Deaths", y = "State", fill = "State")
     return(ggplotly(drug_overdose_plot, tooltip = "text"))
   })
   
